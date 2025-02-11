@@ -4,8 +4,10 @@
 	"version": "${version}",
 	"name": "JamInAJar Mod",
 	"description": "This is an example description! Tell everyone what your mod is about!",
-	"authors": [
-		"Me!"
+
+	"credits": [
+		"ShrimpyTruffl3: Owner, Developer",
+		"DaFuqs: Code from Spectrum for Scissorblades"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
