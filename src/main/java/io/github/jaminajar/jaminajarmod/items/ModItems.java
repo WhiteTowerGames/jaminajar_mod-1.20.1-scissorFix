@@ -1,6 +1,7 @@
 package io.github.jaminajar.jaminajarmod.items;
 
 import io.github.jaminajar.jaminajarmod.JamInAJarMod;
+import io.github.jaminajar.jaminajarmod.items.custom.BoomtubeItem;
 import io.github.jaminajar.jaminajarmod.items.custom.ScissorbladeItem;
 import io.github.jaminajar.jaminajarmod.items.custom.SolbrandItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -23,6 +24,8 @@ public class ModItems{
 	public static final Item RAVAGER_SCREW = registerItem("ravager_screw", new Item(new Item.Settings()));
 	public static final Item SUN_BLADE = registerItem("solarimbued_blade", new Item(new Item.Settings()));
 	public static final Item SOLBRAND = registerItem("solbrand", new SolbrandItem(ModToolMaterials.SOLBRAND, 10, -2.6f, new Item.Settings()));
+	public static final Item BOOM_TUBE = registerItem("boom_tube", new BoomtubeItem(ModToolMaterials.BOOM_TUBE,3,-2.0f,new Item.Settings()));
+	public static final Item CACOPHONY = registerItem("cacophony",new CacophonyItem(Mod));
 	private static Item registerItem(String name, Item item){
 		return Registry.register(Registries.ITEM, new Identifier(JamInAJarMod.MOD_ID, name), item);
 	}

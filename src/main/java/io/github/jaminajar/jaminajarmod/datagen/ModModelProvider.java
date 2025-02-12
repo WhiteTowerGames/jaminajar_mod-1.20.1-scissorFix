@@ -26,6 +26,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RAVAGER_TOOTH, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCISSOR_BLADE, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCISSORS, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.UNTREATED_SCISSORBLADE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.UNTREATED_SCISSOR_BLADE, Models.GENERATED);
     }
 }
