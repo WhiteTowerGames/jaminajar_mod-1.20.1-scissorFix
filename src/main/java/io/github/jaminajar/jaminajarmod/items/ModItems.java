@@ -30,6 +30,7 @@ public class ModItems{
 	public static final Item BOOM_TUBE = registerItem("boom_tube", new BoomtubeItem(ModToolMaterials.BOOM_TUBE,3,-2.0f,new Item.Settings()));
 	public static final Item CACOPHONY = registerItem("cacophony",new CacophonyItem(new Item.Settings()));
 	public static final Item BIOSPEAKER = registerItem("biospeaker", new Item(new Item.Settings()));
+	public static final Item NOTEPROJECTILE = registerItem("noteprojectile",new Item(new Item.Settings()));
 	private static Item registerItem(String name, Item item){
 		return Registry.register(Registries.ITEM, new Identifier(JamInAJarMod.MOD_ID, name), item);
 	}
