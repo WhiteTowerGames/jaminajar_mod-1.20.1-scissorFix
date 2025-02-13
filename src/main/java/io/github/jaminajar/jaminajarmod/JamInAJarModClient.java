@@ -11,6 +11,6 @@ import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 public class JamInAJarModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        EntityRendererRegistry.register(ModEntities.NOTE_PROJECTILE, NoteParticle::new);
+        EntityRendererRegistry.register(ModEntities.NOTE_PROJECTILE, FlyingItemEntityRenderer::new);
     }
 }
