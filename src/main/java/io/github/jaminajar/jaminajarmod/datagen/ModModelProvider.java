@@ -27,5 +27,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SCISSOR_BLADE, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCISSORS, Models.HANDHELD);
         itemModelGenerator.register(ModItems.UNTREATED_SCISSOR_BLADE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BIOSPEAKER,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SUN_BLADE,Models.GENERATED);
+
     }
 }

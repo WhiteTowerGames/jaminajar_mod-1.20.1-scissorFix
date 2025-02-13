@@ -16,6 +16,7 @@ import net.minecraft.util.Identifier;
 import java.util.List;
 import java.util.function.Consumer;
 
+import static io.github.jaminajar.jaminajarmod.items.ModItems.BOOM_TUBE;
 import static io.github.jaminajar.jaminajarmod.items.ModItems.UNTREATED_SCISSOR_BLADE;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
@@ -79,5 +80,21 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('b', Items.BLAZE_ROD)
                 .offerTo(exporter, new Identifier(getRecipeName(UNTREATED_SCISSOR_BLADE)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BOOM_TUBE,1)
+                .pattern("pnp")
+                .pattern("pnp")
+                .pattern("pnp")
+                .input('n', Items.NETHERITE_SCRAP)
+                .input('p', Items.PAPER)
+                .offerTo(exporter, new Identifier(getRecipeName(BOOM_TUBE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, UNTREATED_SCISSOR_BLADE,1)
+                .pattern("  n")
+                .pattern("di ")
+                .pattern("bd ")
+                .input('n', Items.NETHERITE_SCRAP)
+                .input('d', Items.DIAMOND)
+                .input('i', Items.NETHERITE_INGOT)
+                .input('b', Items.BLAZE_ROD)
+                .offerTo(exporter, new Identifier(getRecipeName(UNTREATED_SCISSOR_BLADE)));
 
 }}
