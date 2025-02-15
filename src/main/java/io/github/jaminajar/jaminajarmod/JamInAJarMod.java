@@ -1,5 +1,7 @@
 package io.github.jaminajar.jaminajarmod;
 
+import io.github.jaminajar.jaminajarmod.items.ModItems;
+import io.github.jaminajar.jaminajarmod.util.ModLootTableModifiers;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -16,5 +18,7 @@ public class JamInAJarMod implements ModInitializer {
 
 
 		LOGGER.info("Hello Fabric world!");
+		ModItems.registerModItems();
+		ModLootTableModifiers.modifyLootTables();
 	}
 }

@@ -27,7 +27,7 @@ public class ModItems{
 	public static final Item RAVAGER_SCREW = registerItem("ravager_screw", new Item(new Item.Settings()));
 	public static final Item SUN_BLADE = registerItem("solarimbued_blade", new Item(new Item.Settings().fireproof()));
 	public static final Item SOLBRAND = registerItem("solbrand", new SolbrandItem(ModToolMaterials.SOLBRAND, 10, -2.6f, new Item.Settings().fireproof()));
-	public static final Item BOOM_TUBE = registerItem("boom_tube", new BoomtubeItem(ModToolMaterials.BOOM_TUBE,3,-2.0f,new Item.Settings()));
+	public static final Item BOOM_TUBE = registerItem("boom_tube", new BoomtubeItem(ModToolMaterials.BOOM_TUBE,new Item.Settings()));
 	public static final Item CACOPHONY = registerItem("cacophony",new CacophonyItem(new Item.Settings()));
 	public static final Item BIOSPEAKER = registerItem("biospeaker", new Item(new Item.Settings()));
 	public static final Item NOTEPROJECTILE = registerItem("noteprojectile",new Item(new Item.Settings()));

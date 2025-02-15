@@ -3,6 +3,7 @@ package io.github.jaminajar.jaminajarmod.datagen;
 import io.github.jaminajar.jaminajarmod.items.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.SculkSensorBlock;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
@@ -16,8 +17,8 @@ import net.minecraft.util.Identifier;
 import java.util.List;
 import java.util.function.Consumer;
 
-import static io.github.jaminajar.jaminajarmod.items.ModItems.BOOM_TUBE;
-import static io.github.jaminajar.jaminajarmod.items.ModItems.UNTREATED_SCISSOR_BLADE;
+import static io.github.jaminajar.jaminajarmod.items.ModItems.*;
+import static net.minecraft.item.Items.*;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
     private static final List<ItemConvertible> FORGING_BLASTING = List.of(UNTREATED_SCISSOR_BLADE);
@@ -87,14 +88,21 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('n', Items.NETHERITE_SCRAP)
                 .input('p', Items.PAPER)
                 .offerTo(exporter, new Identifier(getRecipeName(BOOM_TUBE)));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, UNTREATED_SCISSOR_BLADE,1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, CACOPHONY,1)
                 .pattern("  n")
-                .pattern("di ")
+                .pattern("dg ")
                 .pattern("bd ")
-                .input('n', Items.NETHERITE_SCRAP)
+                .input('g', Items.GOAT_HORN)
                 .input('d', Items.DIAMOND)
                 .input('i', Items.NETHERITE_INGOT)
                 .input('b', Items.BLAZE_ROD)
-                .offerTo(exporter, new Identifier(getRecipeName(UNTREATED_SCISSOR_BLADE)));
+                .offerTo(exporter, new Identifier(getRecipeName(CACOPHONY)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, SCULK_SENSOR,3)
+                .pattern("   ")
+                .pattern(" s ")
+                .pattern("bbb")
+                .input('s', ModItems.BIOSPEAKER)
+                .input('b', Items.SCULK)
+                .offerTo(exporter, new Identifier(getRecipeName(SCULK_SENSOR)));
 
 }}

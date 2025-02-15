@@ -17,7 +17,11 @@ public class ModEntities {
     public static final EntityType<NoteProjectileEntity> NOTE_PROJECTILE = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(JamInAJarMod.MOD_ID, "note_projectile"),
             FabricEntityTypeBuilder.<NoteProjectileEntity>create(SpawnGroup.MISC, NoteProjectileEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.25f,0.25f)).build());
+                    .dimensions(EntityDimensions.fixed(0.5f,0.5f)).build());
+    public static final EntityType<HonkProjectileEntity> HONK_PROJECTILE = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(JamInAJarMod.MOD_ID,"honk_projectile"),
+            FabricEntityTypeBuilder.<HonkProjectileEntity>create(SpawnGroup.MISC,HonkProjectileEntity::new)
+                    .dimensions(EntityDimensions.fixed(3.5f,3.5f)).build());
     private World world;
 
 
