@@ -1,20 +1,14 @@
 package io.github.jaminajar.jaminajarmod.items.custom;
 
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
+import com.mojang.datafixers.Typed;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttribute;
-import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.entity.attribute.EntityAttributes;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.UseAction;
-import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
@@ -25,18 +19,19 @@ public class BoomtubeItem extends ToolItem {
         this.maxGunpowder = maxGunpowder;
     }
 
-    public ActionResult useOnBlock(PlayerEntity player, Hand hand){
-        if(player.isSneaking()){
-            ItemStack stack = player.getStackInHand(hand);
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+        ItemStack stack = user.getStackInHand(hand);
+        if (player.isSneaking()) {
+            stack = player.getStackInHand(hand);
             int currentGunpowder = getGunpowder(stack);
-            if(currentGunpowder<maxGunpowder&&playerHasItem(player,Items.GUNPOWDER)){
-                setGunpowder(stack, currentGunpowder+1);
-                reduceItem(player,Items.GUNPOWDER,1);
-                return ActionResult.SUCCESS;
+            if (currentGunpowder < maxGunpowder && playerHasItem(player, Items.GUNPOWDER)) {
+                setGunpowder(stack, currentGunpowder + 1);
+                reduceItem(player, Items.GUNPOWDER, 1);
+                return TypedActionResult.success(stack);
             }
-            return ActionResult.PASS;
+            return TypedActionResult.pass(stack);
         }
-        return ActionResult.FAIL;
+        return TypedActionResult.fail(stack);
     }
 
     public int getGunpowder(ItemStack stack){
