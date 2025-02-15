@@ -10,7 +10,6 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
@@ -19,7 +18,9 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 
+
 public class CacophonyItem extends Item implements Vanishable {
+
     public CacophonyItem(Item.Settings settings) {super(settings);
     }
 
