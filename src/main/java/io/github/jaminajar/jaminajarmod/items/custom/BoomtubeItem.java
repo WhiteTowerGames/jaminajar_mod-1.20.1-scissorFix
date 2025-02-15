@@ -19,14 +19,14 @@ public class BoomtubeItem extends ToolItem {
         this.maxGunpowder = maxGunpowder;
     }
 
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
-        if (player.isSneaking()) {
-            stack = player.getStackInHand(hand);
+        if (user.isSneaking()) {
+            stack = user.getStackInHand(hand);
             int currentGunpowder = getGunpowder(stack);
-            if (currentGunpowder < maxGunpowder && playerHasItem(player, Items.GUNPOWDER)) {
+            if (currentGunpowder < maxGunpowder && playerHasItem(user, Items.GUNPOWDER)) {
                 setGunpowder(stack, currentGunpowder + 1);
-                reduceItem(player, Items.GUNPOWDER, 1);
+                reduceItem(user, Items.GUNPOWDER, 1);
                 return TypedActionResult.success(stack);
             }
             return TypedActionResult.pass(stack);
