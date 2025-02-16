@@ -37,8 +37,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('n', Items.NETHERITE_SCRAP)
                 .input('i', Items.IRON_BARS)
                 .input('w', Items.GRAY_WOOL)
-                .criterion(hasItem(Items.NETHERITE_SCRAP),conditionsFromItem(Items.NETHERITE_SCRAP))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.COMFY_HANDLE)));
+                .criterion(hasItem(Items.NETHERITE_SCRAP),conditionsFromItem(Items.NETHERITE_SCRAP));
 
         offerBlasting(exporter, FORGING_BLASTING, RecipeCategory.MISC, ModItems.FORGED_BLADE,3000f,6000, "forged_blade");
 
@@ -48,8 +47,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("nl ")
                 .input('n', Items.IRON_NUGGET)
                 .input('i', Items.IRON_BLOCK)
-                .input('l', Items.LIGHTNING_ROD)
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MACHETE)));
+                .input('l', Items.LIGHTNING_ROD);
 
         offerStonecuttingRecipe(exporter, RecipeCategory.MISC, ModItems.RAVAGER_SCREW, ModItems.RAVAGER_TOOTH,2);
 
@@ -57,8 +55,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Items.BLUE_ICE,5)
                 .input(Items.NETHERITE_INGOT,1)
                 .input(Items.BLAZE_POWDER,2)
-                .input(ModItems.FORGED_BLADE,1)
-                .offerTo(exporter, new Identifier(getRecipeName((ModItems.SCISSOR_BLADE))));
+                .input(ModItems.FORGED_BLADE,1);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC,ModItems.SOLBRAND,1)
                 .pattern("gbg")
@@ -68,8 +65,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('g',Items.TINTED_GLASS)
                 .input('n',Items.NETHERITE_INGOT)
                 .input('s',Items.NETHERITE_SCRAP)
-                .input('r',Items.BLAZE_ROD)
-                .offerTo(exporter, new Identifier(getRecipeName((ModItems.SOLBRAND))));
+                .input('r',Items.BLAZE_ROD);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, UNTREATED_SCISSOR_BLADE,1)
                 .pattern("  n")
@@ -78,16 +74,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('n', Items.NETHERITE_SCRAP)
                 .input('d', Items.DIAMOND)
                 .input('i', Items.NETHERITE_INGOT)
-                .input('b', Items.BLAZE_ROD)
-                .offerTo(exporter, new Identifier(getRecipeName(UNTREATED_SCISSOR_BLADE)));
+                .input('b', Items.BLAZE_ROD);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BOOM_TUBE,1)
                 .pattern("pnp")
                 .pattern("pnp")
                 .pattern("pnp")
                 .input('n', Items.NETHERITE_SCRAP)
-                .input('p', Items.PAPER)
-                .offerTo(exporter, new Identifier(getRecipeName(BOOM_TUBE)));
+                .input('p', Items.PAPER);
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, CACOPHONY,1)
                 .pattern("  n")
                 .pattern("dg ")
@@ -95,14 +89,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('g', Items.GOAT_HORN)
                 .input('d', Items.DIAMOND)
                 .input('i', Items.NETHERITE_INGOT)
-                .input('b', Items.BLAZE_ROD)
-                .offerTo(exporter, new Identifier(getRecipeName(CACOPHONY)));
+                .input('b', Items.BLAZE_ROD);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, SCULK_SENSOR,3)
                 .pattern("   ")
                 .pattern(" s ")
                 .pattern("bbb")
                 .input('s', ModItems.BIOSPEAKER)
-                .input('b', Items.SCULK)
-                .offerTo(exporter, new Identifier(getRecipeName(SCULK_SENSOR)));
+                .input('b', Items.SCULK);
 
 }}

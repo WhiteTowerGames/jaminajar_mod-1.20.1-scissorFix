@@ -21,11 +21,9 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.COMFY_HANDLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.FORGED_BLADE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MACHETE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.RAVAGER_SCREW, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAVAGER_TOOTH, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCISSOR_BLADE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SCISSORS, Models.HANDHELD);
         itemModelGenerator.register(ModItems.UNTREATED_SCISSOR_BLADE, Models.GENERATED);
         itemModelGenerator.register(ModItems.BIOSPEAKER,Models.GENERATED);
         itemModelGenerator.register(ModItems.SUN_BLADE,Models.GENERATED);
