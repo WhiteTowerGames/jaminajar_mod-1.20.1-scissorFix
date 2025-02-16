@@ -1,6 +1,7 @@
 package io.github.jaminajar.jaminajarmod.items.custom;
 
 import com.mojang.datafixers.Typed;
+import io.github.jaminajar.jaminajarmod.items.ModToolMaterials;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 
@@ -12,10 +13,10 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class BoomtubeItem extends ToolItem {
+public class BoomtubeItem extends SwordItem {
     private final int maxGunpowder;
-    public BoomtubeItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings, int maxGunpowder) {
-        super(toolMaterial, settings);
+    public BoomtubeItem(ModToolMaterials toolMaterial, int attackDamage, float attackSpeed, Settings settings, int maxGunpowder) {
+        super(toolMaterial, attackDamage, attackSpeed, settings);
         this.maxGunpowder = maxGunpowder;
     }
 
