@@ -1,13 +1,10 @@
 package io.github.jaminajar.jaminajarmod.items.custom;
 
-import com.mojang.datafixers.Typed;
 import io.github.jaminajar.jaminajarmod.items.ModToolMaterials;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.MathHelper;
@@ -46,64 +43,53 @@ public class BoomtubeItem extends SwordItem {
         return maxGunpowder;
     }
     public boolean isItemBarVisible(ItemStack stack) {
-        return getGunpowder(stack) > 0;  // Show the bar if charge is greater than 0
+        return getGunpowder(stack) > 0;
     }
-
-    // Step 2: Get the fill amount of the bar (float from 0.0 to 1.0)
     @Override
     public int getItemBarStep(ItemStack stack) {
         int charge = getGunpowder(stack);
-        return MathHelper.ceil(charge * 13.0F / maxGunpowder);  // Calculate the bar step (13 steps)
+        return MathHelper.ceil(charge * 13.0F / maxGunpowder);
     }
-
-    // Step 3: Define the color of the item bar (here we return green when full, red when empty)
     @Override
     public int getItemBarColor(ItemStack stack) {
         int charge = getGunpowder(stack);
-        // Return a color: Green when full, Red when empty
-        return charge == 0 ? 0xFF0000 : 0x00FF00; // Red: 0xFF0000, Green: 0x00FF00
+        return charge == 0 ? 0xFF0000 : 0x00FF00;
     }
 
     public static boolean playerHasItem(PlayerEntity player, Item itemToCheck) {
-        // Loop through the player's inventory and check for the item
         for (ItemStack stack : player.getInventory().main) {
             if (stack.getItem() == itemToCheck) {
-                return true; // Player has the item
+                return true;
             }
         }
-        return false; // Player does not have the item
+        return false;
     }
-    public static boolean reduceItem(PlayerEntity player, Item itemToReduce, int amount) {
+    public static void reduceItem(PlayerEntity player, Item itemToReduce, int amount) {
         for (ItemStack stack : player.getInventory().main) {
             if (stack.getItem() == itemToReduce) {
                 int currentCount = stack.getCount();
                 if (currentCount >= amount) {
-                    stack.decrement(amount); // Decrease the count by the specified amount
-                    return true; // Successfully reduced the item
-                } else {
-                    // If the player doesn't have enough of the item
-                    return false;
+                    stack.decrement(amount);
                 }
+                return;
             }
         }
-        return false; // Item not found in inventory
     }
-    public void explodeOnHit(Entity entity, ItemStack stack) {
+
+
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        boolean superHit = super.postHit(stack,target,attacker);
         if (getGunpowder(stack)>=maxGunpowder){
-            entity.getWorld().createExplosion(null,
-                    entity.getX(),
-                    entity.getY(),
-                    entity.getZ(),
+            target.getWorld().createExplosion(target,
+                    target.getX(),
+                    target.getY(),
+                    target.getZ(),
                     2.0F,
                     false,
                     World.ExplosionSourceType.MOB);
             setGunpowder(stack,getGunpowder(stack)-1);
+            return superHit;
         }
-
+        return false;
     }
-
-    public void onEntityHit(LivingEntity target, ItemStack stack){
-        explodeOnHit(target,stack);
-    }
-
 }
