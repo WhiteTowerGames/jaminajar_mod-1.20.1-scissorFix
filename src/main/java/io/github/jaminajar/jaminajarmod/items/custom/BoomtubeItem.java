@@ -53,7 +53,7 @@ public class BoomtubeItem extends SwordItem {
     @Override
     public int getItemBarColor(ItemStack stack) {
         int charge = getGunpowder(stack);
-        return charge == 0 ? 0xFF0000 : 0x00FF00;
+        return charge == 0 ? 0x220000 : 0xFFFF00;
     }
 
     public static boolean playerHasItem(PlayerEntity player, Item itemToCheck) {
