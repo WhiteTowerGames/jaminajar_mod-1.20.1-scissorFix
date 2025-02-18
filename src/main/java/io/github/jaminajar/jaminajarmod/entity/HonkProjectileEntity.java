@@ -3,6 +3,7 @@ package io.github.jaminajar.jaminajarmod.entity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.util.hit.EntityHitResult;
@@ -24,12 +25,12 @@ public class HonkProjectileEntity extends ProjectileEntity {
         if (!this.getWorld().isClient()){
             Entity entity = entityHitResult.getEntity();
             Entity entity2 = this.getOwner();
-            entity.damage(this.getDamageSources().sonicBoom(this), 7.0F);
+            entity.damage(this.getDamageSources().sonicBoom(this), 10.0F);
             if (entity2 instanceof LivingEntity) {
                 this.applyDamageEffects((LivingEntity)entity2, entity);
+
+
             }
         }
 }
-
-
 }

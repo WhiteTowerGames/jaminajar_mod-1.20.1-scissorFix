@@ -79,7 +79,7 @@ public class BoomtubeItem extends SwordItem {
 
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         boolean superHit = super.postHit(stack,target,attacker);
-        if (getGunpowder(stack)>=maxGunpowder){
+        if (getGunpowder(stack)<=maxGunpowder){
             target.getWorld().createExplosion(target,
                     target.getX(),
                     target.getY(),
