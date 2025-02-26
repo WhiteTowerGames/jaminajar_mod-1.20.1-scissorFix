@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 
 public class BoomtubeItem extends SwordItem {
     private final int maxGunpowder;
+    public float explosionPower = 2.0F;
     public BoomtubeItem(ModToolMaterials toolMaterial, int attackDamage, float attackSpeed, Settings settings, int maxGunpowder) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
         this.maxGunpowder = maxGunpowder;
@@ -84,7 +85,7 @@ public class BoomtubeItem extends SwordItem {
                     target.getX(),
                     target.getY(),
                     target.getZ(),
-                    2.0F,
+                    explosionPower,
                     false,
                     World.ExplosionSourceType.MOB);
             setGunpowder(stack,getGunpowder(stack)-1);

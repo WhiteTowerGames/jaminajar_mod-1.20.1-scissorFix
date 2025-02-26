@@ -52,6 +52,7 @@ public class CacophonyItem extends Item implements Vanishable {
                             0.0,
                             0.0,
                             0.0);
+                    serverWorld.spawnEntity(honkProjectileEntity);
                 }
             }
 
