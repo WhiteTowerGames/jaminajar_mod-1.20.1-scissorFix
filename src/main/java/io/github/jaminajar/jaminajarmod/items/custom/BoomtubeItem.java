@@ -1,20 +1,45 @@
 package io.github.jaminajar.jaminajarmod.items.custom;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
+import io.github.jaminajar.jaminajarmod.enchantment.BlastEnchantment;
 import io.github.jaminajar.jaminajarmod.items.ModToolMaterials;
+import net.minecraft.client.item.TooltipContext;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
-public class BoomtubeItem extends SwordItem {
+import java.util.List;
+
+
+public class BoomtubeItem extends ToolItem {
     private final int maxGunpowder;
+    private final float attackDamage;
+    private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
     public float explosionPower = 2.0F;
+    String gunpowderTooltipDisplay = "";
     public BoomtubeItem(ModToolMaterials toolMaterial, int attackDamage, float attackSpeed, Settings settings, int maxGunpowder) {
-        super(toolMaterial, attackDamage, attackSpeed, settings);
+        super(toolMaterial, settings);
+
+        this.attackDamage = attackDamage + toolMaterial.getAttackDamage();
+
+        ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
+        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID,
+                "Weapon modifier", attackDamage, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID,
+                "Weapon modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
+        this.attributeModifiers = builder.build();
         this.maxGunpowder = maxGunpowder;
     }
 
@@ -34,11 +59,12 @@ public class BoomtubeItem extends SwordItem {
     }
 
     public int getGunpowder(ItemStack stack){
-
         return stack.getOrCreateNbt().getInt("Gunpowder");
     }
     public void setGunpowder(ItemStack stack, int storedGunpowder){
         stack.getOrCreateNbt().putInt("Gunpowder", MathHelper.clamp(storedGunpowder,0,maxGunpowder));
+        gunpowderTooltipDisplay = "(" + storedGunpowder + ")";
+
     }
     public int getMaxGunpowder(){
         return maxGunpowder;
@@ -80,6 +106,7 @@ public class BoomtubeItem extends SwordItem {
 
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         boolean superHit = super.postHit(stack,target,attacker);
+        explosionPower = EnchantmentHelper.getLevel(new BlastEnchantment(), stack)+2;
         if (getGunpowder(stack)<=maxGunpowder){
             target.getWorld().createExplosion(target,
                     target.getX(),
@@ -92,5 +119,11 @@ public class BoomtubeItem extends SwordItem {
             return superHit;
         }
         return false;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        tooltip.add(Text.translatable("tooltip.jaminajarmod.tooltip"));
+        super.appendTooltip(stack, world, tooltip, context);
     }
 }
