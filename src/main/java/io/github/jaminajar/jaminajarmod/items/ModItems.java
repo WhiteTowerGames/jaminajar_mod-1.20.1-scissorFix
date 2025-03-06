@@ -6,11 +6,8 @@ import io.github.jaminajar.jaminajarmod.items.custom.CacophonyItem;
 import io.github.jaminajar.jaminajarmod.items.custom.ScissorbladeItem;
 import io.github.jaminajar.jaminajarmod.items.custom.SolbrandItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.SkullItem;
-import net.minecraft.item.SwordItem;
+
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -31,6 +28,7 @@ public class ModItems{
 	public static final Item CACOPHONY = registerItem("cacophony",new CacophonyItem(new Item.Settings()));
 	public static final Item BIOSPEAKER = registerItem("biospeaker", new Item(new Item.Settings()));
 	public static final Item NOTEPROJECTILE = registerItem("noteprojectile",new Item(new Item.Settings()));
+	public static final Item MARSHMALLOW = registerItem("marshmallow",new Item(new Item.Settings()));
 	private static Item registerItem(String name, Item item){
 		return Registry.register(Registries.ITEM, new Identifier(JamInAJarMod.MOD_ID, name), item);
 	}

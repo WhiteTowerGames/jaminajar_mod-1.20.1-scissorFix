@@ -1,5 +1,9 @@
-// 1.20.1	2025-02-16T21:11:41.7121107	JamInAJar Mod/Recipes
+// 1.20.1	2025-03-06T23:42:20.722134	JamInAJar Mod/Recipes
 c4f2e64d2bae9d6a1a512a49c9b9c51d69679d6d data\jaminajarmod\advancements\recipes\misc\ravager_screw_from_ravager_tooth_stonecutting.json
 6b0e319f3311dcec2c5add9b4fbdf593a1611dcb data\jaminajarmod\recipes\forged_blade_from_blasting_untreated_blade.json
+cf505c52b9f707ff56e4cbc386e0bef3283928d6 data\jaminajarmod\recipes\marshmallow_slab.json
 171dfb00523704a8af934d5793efd4a93bf5bab0 data\jaminajarmod\recipes\ravager_screw_from_ravager_tooth_stonecutting.json
 89fb694b5a2fda486ce32fcc37b70713d1bdfe5c data\jaminajarmod\advancements\recipes\misc\forged_blade_from_blasting_untreated_blade.json
+01ef1c42cb33c78e56297c2284ebce150ddd0cfe data\jaminajarmod\advancements\recipes\food\marshmallow.json
+7b42a036af75637d69c6bb5b4a262e4b7eeee8c8 data\jaminajarmod\advancements\recipes\building_blocks\marshmallow_slab.json
+42430075677358b61cdc82b239bced955a082aaa data\jaminajarmod\recipes\marshmallow.json

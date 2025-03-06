@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jaminajarmod:block/marshmallow_slab"
+    },
+    "type=double": {
+      "model": "jaminajarmod:block/marshmallow_block"
+    },
+    "type=top": {
+      "model": "jaminajarmod:block/marshmallow_slab_top"
+    }
+  }
+}

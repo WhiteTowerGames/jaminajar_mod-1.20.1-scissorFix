@@ -1,22 +1,17 @@
 package io.github.jaminajar.jaminajarmod.datagen;
 
+import io.github.jaminajar.jaminajarmod.blocks.custom.ModBlocks;
 import io.github.jaminajar.jaminajarmod.items.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.block.SculkSensorBlock;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.StonecuttingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.util.Identifier;
-
 import java.util.List;
 import java.util.function.Consumer;
-
 import static io.github.jaminajar.jaminajarmod.items.ModItems.*;
 import static net.minecraft.item.Items.*;
 
@@ -50,12 +45,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('l', Items.LIGHTNING_ROD);
 
         offerStonecuttingRecipe(exporter, RecipeCategory.MISC, ModItems.RAVAGER_SCREW, ModItems.RAVAGER_TOOTH,2);
-
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.FOOD, ModItems.MARSHMALLOW, RecipeCategory.BUILDING_BLOCKS,ModBlocks.MARSHMALLOW_SLAB);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC,ModItems.SCISSOR_BLADE,1)
                 .input(Items.BLUE_ICE,5)
                 .input(Items.NETHERITE_INGOT,1)
                 .input(Items.BLAZE_POWDER,2)
                 .input(ModItems.FORGED_BLADE,1);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.MARSHMALLOW,3)
+                        .input(Items.MILK_BUCKET,1)
+                                .input(Items.SUGAR,2)
+                                        .input(Items.SLIME_BALL,1);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC,ModItems.SOLBRAND,1)
                 .pattern("gbg")

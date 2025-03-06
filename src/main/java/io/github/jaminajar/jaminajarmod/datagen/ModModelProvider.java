@@ -1,5 +1,6 @@
 package io.github.jaminajar.jaminajarmod.datagen;
 
+import io.github.jaminajar.jaminajarmod.blocks.custom.ModBlocks;
 import io.github.jaminajar.jaminajarmod.items.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -15,6 +16,10 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         ///blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.block);
+        BlockStateModelGenerator.BlockTexturePool marshmallowPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.MARSHMALLOW_BLOCK);
+
+        marshmallowPool.slab((ModBlocks.MARSHMALLOW_SLAB));
+
     }
 
     @Override
