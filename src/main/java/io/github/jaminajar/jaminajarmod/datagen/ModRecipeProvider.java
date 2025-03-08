@@ -9,7 +9,11 @@ import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.CampfireCookingRecipe;
+import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.util.Identifier;
+
 import java.util.List;
 import java.util.function.Consumer;
 import static io.github.jaminajar.jaminajarmod.items.ModItems.*;
@@ -35,7 +39,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.NETHERITE_SCRAP),conditionsFromItem(Items.NETHERITE_SCRAP));
 
         offerBlasting(exporter, FORGING_BLASTING, RecipeCategory.MISC, ModItems.FORGED_BLADE,3000f,6000, "forged_blade");
-
+        offerFoodCookingRecipe(exporter, "", RecipeSerializer.CAMPFIRE_COOKING,30, ModItems.MARSHMALLOW, ModItems.COOKED_MARSHMALLOW,0.3f);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MACHETE,1)
                 .pattern("  i")
                 .pattern("li ")

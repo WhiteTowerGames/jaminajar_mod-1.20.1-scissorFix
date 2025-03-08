@@ -63,7 +63,7 @@ public class BoomtubeItem extends ToolItem {
     }
     public void setGunpowder(ItemStack stack, int storedGunpowder){
         stack.getOrCreateNbt().putInt("Gunpowder", MathHelper.clamp(storedGunpowder,0,maxGunpowder));
-        gunpowderTooltipDisplay = "(" + storedGunpowder + ")";
+        gunpowderTooltipDisplay = "Gunpowder: " + storedGunpowder;
 
     }
     public int getMaxGunpowder(){
@@ -106,7 +106,7 @@ public class BoomtubeItem extends ToolItem {
 
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         boolean superHit = super.postHit(stack,target,attacker);
-        explosionPower = EnchantmentHelper.getLevel(new BlastEnchantment(), stack)+2;
+        explosionPower = 2*EnchantmentHelper.getLevel(new BlastEnchantment(), stack)+2;
         if (getGunpowder(stack)<=maxGunpowder){
             target.getWorld().createExplosion(target,
                     target.getX(),
