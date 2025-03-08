@@ -15,7 +15,7 @@ public enum ModToolMaterials implements ToolMaterial {
 	SOLBRAND(MiningLevels.DIAMOND,991, 5.0F, 0F, 15, () -> Ingredient.ofItems(Items.BLAZE_ROD)),
 	BOOM_TUBE(MiningLevels.WOOD,640,0.1f,5f,4,()->Ingredient.ofItems(Items.PAPER)),
 	MARSHMALLOW_STICK(MiningLevels.STONE,500,0.1f,0f,10,()->Ingredient.ofItems(Items.SLIME_BALL)),
-	NETHERITE_MARSHMALLOW_STICK(MiningLevels.NETHERITE,2500,0.1f,0f,25,()->Ingredient.ofItems(Items.NETHERITE_SCRAP));
+	NETHERITE_MARSHMALLOW_STICK(MiningLevels.NETHERITE,2500,0.1f,0f,25,()->Ingredient.ofItems(Items.NETHERITE_SCRAP))
 	;
 
 

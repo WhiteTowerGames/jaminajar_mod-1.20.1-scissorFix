@@ -65,4 +65,5 @@ public class MarshmallowStickItem extends ToolItem {
         target.setStatusEffect(gooedEffect, attacker);
         return superHit;
     }
+
 }
