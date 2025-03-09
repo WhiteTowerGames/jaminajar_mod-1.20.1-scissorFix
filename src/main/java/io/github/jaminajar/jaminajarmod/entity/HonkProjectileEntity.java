@@ -4,11 +4,17 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 
 public class HonkProjectileEntity extends ProjectileEntity {
+
+    private static final TrackedData<Boolean> NO_GRAVITY = DataTracker.registerData(HonkProjectileEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+
     public HonkProjectileEntity(EntityType<? extends ProjectileEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -19,6 +25,10 @@ public class HonkProjectileEntity extends ProjectileEntity {
     @Override
     protected void initDataTracker() {
 
+    }
+    public void tick(){
+        super.tick();
+        this.setNoGravity(true);
     }
     protected void onEntityHit(EntityHitResult entityHitResult){
         if (!this.getWorld().isClient()){

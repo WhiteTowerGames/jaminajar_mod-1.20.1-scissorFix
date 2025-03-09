@@ -1,4 +1,4 @@
-package io.github.jaminajar.jaminajarmod.blocks.custom;
+package tempstorage;
 
 import net.minecraft.block.SlabBlock;
 

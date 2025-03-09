@@ -47,7 +47,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('l', Items.LIGHTNING_ROD);
 
         offerStonecuttingRecipe(exporter, RecipeCategory.MISC, ModItems.RAVAGER_SCREW, ModItems.RAVAGER_TOOTH,2);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.FOOD, ModItems.MARSHMALLOW, RecipeCategory.BUILDING_BLOCKS,ModBlocks.MARSHMALLOW_SLAB);
+        //offerReversibleCompactingRecipes(exporter, RecipeCategory.FOOD, ModItems.MARSHMALLOW, RecipeCategory.BUILDING_BLOCKS,ModBlocks.MARSHMALLOW_SLAB);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC,ModItems.SCISSOR_BLADE,1)
                 .input(Items.BLUE_ICE,5)
                 .input(Items.NETHERITE_INGOT,1)

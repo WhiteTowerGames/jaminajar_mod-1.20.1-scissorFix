@@ -25,14 +25,14 @@ public class NoteProjectileEntity extends ProjectileEntity implements FlyingItem
     protected void initDataTracker() {
 
     }
-    public float getGravity(){
-        return 0.0F;
-    }
+
     @Override
     public Packet<ClientPlayPacketListener> createSpawnPacket(){
         return new EntitySpawnS2CPacket(this);
     }
-
+    public void tick(){
+        this.setNoGravity(true);
+    }
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult){
         if (!this.getWorld().isClient()){

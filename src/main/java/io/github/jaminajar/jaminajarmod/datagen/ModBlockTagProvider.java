@@ -16,8 +16,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         /// add block tags
-        getOrCreateTagBuilder(BlockTags.SLABS)
-                .add(ModBlocks.MARSHMALLOW_SLAB);
+        //getOrCreateTagBuilder(BlockTags.SLABS)
+                //.add(ModBlocks.MARSHMALLOW_SLAB);
     }
 
 }

@@ -21,8 +21,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        addDrop(ModBlocks.MARSHMALLOW_SLAB,copperLikeDrops(ModBlocks.MARSHMALLOW_SLAB,ModItems.MARSHMALLOW));
-        addDrop(ModBlocks.MARSHMALLOW_BLOCK,copperLikeDropsTimesTwo(ModBlocks.MARSHMALLOW_BLOCK,ModItems.MARSHMALLOW));
+        //addDrop(ModBlocks.MARSHMALLOW_SLAB,copperLikeDrops(ModBlocks.MARSHMALLOW_SLAB,ModItems.MARSHMALLOW));
+        //addDrop(ModBlocks.MARSHMALLOW_BLOCK,copperLikeDropsTimesTwo(ModBlocks.MARSHMALLOW_BLOCK,ModItems.MARSHMALLOW));
     }
 
     public LootTable.Builder copperLikeDrops(Block drop, Item item){
