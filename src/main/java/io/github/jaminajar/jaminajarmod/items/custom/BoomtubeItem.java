@@ -27,7 +27,7 @@ public class BoomtubeItem extends ToolItem {
     private final int maxGunpowder;
     private final float attackDamage;
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
-    public float explosionPower = 2.0F;
+    public int explosionPower = 2;
     String gunpowderTooltipDisplay = "";
     public BoomtubeItem(ModToolMaterials toolMaterial, int attackDamage, float attackSpeed, Settings settings, int maxGunpowder) {
         super(toolMaterial, settings);
