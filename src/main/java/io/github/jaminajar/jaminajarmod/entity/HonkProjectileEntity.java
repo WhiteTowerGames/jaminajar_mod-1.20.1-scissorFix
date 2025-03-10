@@ -13,7 +13,6 @@ import net.minecraft.world.World;
 
 public class HonkProjectileEntity extends ProjectileEntity {
 
-    private static final TrackedData<Boolean> NO_GRAVITY = DataTracker.registerData(HonkProjectileEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
     public HonkProjectileEntity(EntityType<? extends ProjectileEntity> entityType, World world) {
         super(entityType, world);

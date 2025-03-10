@@ -31,6 +31,7 @@ public class ModItems{
 	public static final Item NETHERITE_MARSHMALLOW_STICK =registerItem("netherite_marshmallow_stick",new MarshmallowStickItem(ModToolMaterials.NETHERITE_MARSHMALLOW_STICK,8,-2.2f,new Item.Settings(),0,1));
 	public static final Item COOKED_MARSHMALLOW_STICK = registerItem("cooked_marshmallow_stick",new MarshmallowStickItem(ModToolMaterials.MARSHMALLOW_STICK,5,-2.8f,new Item.Settings(),1,0));
 	public static final Item COOKED_NETHERITE_MARSHMALLOW_STICK =registerItem("cooked_netherite_marshmallow_stick",new MarshmallowStickItem(ModToolMaterials.NETHERITE_MARSHMALLOW_STICK,9,-2.8f,new Item.Settings(),1,1));
+	public static final Item SOULER = registerItem("souler", new SoulerItem(new Item.Settings()));
 	private static Item registerItem(String name, Item item){
 		return Registry.register(Registries.ITEM, new Identifier(JamInAJarMod.MOD_ID, name), item);
 	}

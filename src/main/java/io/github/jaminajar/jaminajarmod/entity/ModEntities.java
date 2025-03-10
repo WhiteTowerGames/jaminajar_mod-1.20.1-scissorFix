@@ -22,6 +22,10 @@ public class ModEntities {
             new Identifier(JamInAJarMod.MOD_ID,"honk_projectile"),
             FabricEntityTypeBuilder.<HonkProjectileEntity>create(SpawnGroup.MISC,HonkProjectileEntity::new)
                     .dimensions(EntityDimensions.fixed(3.5f,3.5f)).build());
+    public static final EntityType<SoulerSoulProjectile> SOULER_SOUL_PROJECTILE = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(JamInAJarMod.MOD_ID,"souler_soul_projectile"),
+            FabricEntityTypeBuilder.<SoulerSoulProjectile>create(SpawnGroup.MISC,SoulerSoulProjectile::new)
+                    .dimensions(EntityDimensions.fixed(9f,4.5f)).build());
     private World world;
 
 

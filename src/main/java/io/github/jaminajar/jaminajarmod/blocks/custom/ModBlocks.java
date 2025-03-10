@@ -2,9 +2,7 @@ package io.github.jaminajar.jaminajarmod.blocks.custom;
 
 import io.github.jaminajar.jaminajarmod.JamInAJarMod;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;

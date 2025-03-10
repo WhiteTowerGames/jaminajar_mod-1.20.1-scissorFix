@@ -1,10 +1,8 @@
 package io.github.jaminajar.jaminajarmod.datagen;
 
-import io.github.jaminajar.jaminajarmod.blocks.custom.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
 
 import java.util.concurrent.CompletableFuture;
 

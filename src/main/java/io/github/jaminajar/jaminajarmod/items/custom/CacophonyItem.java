@@ -25,7 +25,7 @@ public class CacophonyItem extends Item implements Vanishable {
 
     @Override
     public UseAction getUseAction(ItemStack stack) {
-        return UseAction.NONE;
+        return UseAction.SPEAR;
     }
 
     @Override
