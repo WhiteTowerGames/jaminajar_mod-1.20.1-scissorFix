@@ -1,10 +1,13 @@
 package io.github.jaminajar.jaminajarmod.entity;
 
-import io.github.jaminajar.jaminajarmod.ModDamageTypes;
+import io.github.jaminajar.jaminajarmod.effects.SouledEffect;
+import io.github.jaminajar.jaminajarmod.entity.damage.ModDamageTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.hit.EntityHitResult;
@@ -31,6 +34,7 @@ public class SoulerSoulProjectile extends ProjectileEntity {
             this.setVelocity(-vec3d.x / 2.0 - vec3d2.x, this.isOnGround() ? Math.min(0.4, vec3d.y / 2.0 + strength) : vec3d.y, -vec3d.z / 2.0 - vec3d2.z);
     }
     protected void onEntityHit(EntityHitResult entityHitResult){
+        StatusEffectInstance statusEffectInstance = new StatusEffectInstance(new SouledEffect(StatusEffectCategory.HARMFUL,2551850));
         if (!this.getWorld().isClient()){
             Entity entity = entityHitResult.getEntity();
             Entity entity2 = this.getOwner();
@@ -41,7 +45,8 @@ public class SoulerSoulProjectile extends ProjectileEntity {
             entity.damage(damageSource, 5.0F);
             takeSoulKnockback(5,entity.getX(),entity.getY(),entity.getZ());
             if (entity2 instanceof LivingEntity) {
-                this.applyDamageEffects((LivingEntity)entity2, entity);
+                LivingEntity livingEntity= (LivingEntity) entity;
+                livingEntity.addStatusEffect(statusEffectInstance);
                 /// add +soul energy
             }
         }

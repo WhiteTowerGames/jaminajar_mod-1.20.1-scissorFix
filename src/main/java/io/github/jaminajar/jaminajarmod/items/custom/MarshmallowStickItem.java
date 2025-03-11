@@ -1,20 +1,30 @@
 package io.github.jaminajar.jaminajarmod.items.custom;
 
 import com.google.common.collect.ImmutableMultimap;
+import com.mojang.datafixers.util.Pair;
 import io.github.jaminajar.jaminajarmod.effects.GooedEffect;
 import io.github.jaminajar.jaminajarmod.enchantment.GooeynessEnchantment;
 import io.github.jaminajar.jaminajarmod.items.ModItems;
 import io.github.jaminajar.jaminajarmod.items.ModToolMaterials;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolItem;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
+
+import java.util.Objects;
+
 
 public class MarshmallowStickItem extends ToolItem {
     private final int yesCooked;
@@ -30,6 +40,39 @@ public class MarshmallowStickItem extends ToolItem {
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID,
                 "Weapon modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
         builder.build();
+    }
+
+    @Override
+    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        world.playSound(
+                null,
+                user.getX(),
+                user.getY(),
+                user.getZ(),
+                user.getEatSound(stack),
+                SoundCategory.NEUTRAL,
+                1.0F,
+                1.0F + (world.random.nextFloat() - world.random.nextFloat()) * 0.4F
+        );
+        this.applyFoodEffects(stack, world, user);
+        if (!(user instanceof PlayerEntity) || !((PlayerEntity)user).getAbilities().creativeMode) {
+            stack.damage(250*(3-yesCooked-yesNetherite),
+                    user,
+                    e -> e.sendEquipmentBreakStatus(
+                            user.getActiveHand() == Hand.OFF_HAND ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND));
+        }
+        return stack;
+    }
+
+    private void applyFoodEffects(ItemStack stack, World world, LivingEntity targetEntity) {
+        Item item = stack.getItem();
+        if (item.isFood()) {
+            for (Pair<StatusEffectInstance, Float> pair : Objects.requireNonNull(item.getFoodComponent()).getStatusEffects()) {
+                if (!world.isClient && pair.getFirst() != null && world.random.nextFloat() < pair.getSecond()) {
+                    targetEntity.addStatusEffect(new StatusEffectInstance(pair.getFirst()));
+                }
+            }
+        }
     }
     public void setCooked(ItemStack stack,int cookedness){
         stack.getOrCreateNbt().putInt("Cookedness", MathHelper.clamp(cookedness,0,yesCooked));

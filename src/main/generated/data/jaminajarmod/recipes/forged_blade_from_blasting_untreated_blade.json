@@ -2,7 +2,7 @@
   "type": "minecraft:blasting",
   "category": "misc",
   "cookingtime": 6000,
-  "experience": 3000.0,
+  "experience": 300.0,
   "group": "forged_blade",
   "ingredient": {
     "item": "jaminajarmod:untreated_blade"

@@ -1,4 +1,4 @@
-package io.github.jaminajar.jaminajarmod.items.custom;
+package io.github.jaminajar.jaminajarmod.items.soul;
 
 import net.minecraft.item.Item;
 

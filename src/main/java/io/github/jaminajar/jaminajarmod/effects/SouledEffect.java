@@ -9,7 +9,7 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import java.util.Objects;
 
 public class SouledEffect extends StatusEffect {
-    protected SouledEffect(StatusEffectCategory category, int color) {
+    public SouledEffect(StatusEffectCategory category, int color) {
         super(category, color);
     }
 

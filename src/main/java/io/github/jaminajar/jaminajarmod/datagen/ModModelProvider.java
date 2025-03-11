@@ -28,10 +28,22 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RAVAGER_SCREW, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAVAGER_TOOTH, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCISSOR_BLADE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.UNTREATED_SCISSOR_BLADE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.UNTREATED_BLADE, Models.GENERATED);
         itemModelGenerator.register(ModItems.BIOSPEAKER,Models.GENERATED);
-        itemModelGenerator.register(ModItems.SUN_BLADE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.INCANDESCENT_BLADE,Models.GENERATED);
         itemModelGenerator.register(ModItems.NOTEPROJECTILE,Models.GENERATED);
-
+        itemModelGenerator.register(ModItems.MARSHMALLOW,Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_MARSHMALLOW,Models.GENERATED);
+        itemModelGenerator.register(ModItems.BOOM_TUBE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SOLBRAND,Models.GENERATED);
+        itemModelGenerator.register(ModItems.BLADE_CORE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.CACOPHONY,Models.GENERATED);
+        itemModelGenerator.register(ModItems.CRIMSON_BLADE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.HELICOPTER_SWORD,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SOULER,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MARSHMALLOW_STICK,Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_MARSHMALLOW_STICK,Models.GENERATED);
+        itemModelGenerator.register(ModItems.NETHERITE_MARSHMALLOW_STICK,Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_NETHERITE_MARSHMALLOW_STICK,Models.GENERATED);
     }
 }

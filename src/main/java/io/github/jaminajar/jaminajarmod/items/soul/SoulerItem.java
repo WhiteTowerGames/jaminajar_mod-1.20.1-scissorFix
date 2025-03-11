@@ -1,14 +1,10 @@
-package io.github.jaminajar.jaminajarmod.items.custom;
+package io.github.jaminajar.jaminajarmod.items.soul;
 
-import io.github.jaminajar.jaminajarmod.ModDamageTypes;
 import io.github.jaminajar.jaminajarmod.entity.ModEntities;
-import io.github.jaminajar.jaminajarmod.entity.NoteProjectileEntity;
 import io.github.jaminajar.jaminajarmod.entity.SoulerSoulProjectile;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
