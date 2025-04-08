@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 6000,
+  "experience": 300.0,
+  "group": "forged_blade",
+  "ingredient": {
+    "item": "jaminajarmod:forged_blade"
+  },
+  "result": "jaminajarmod:incandescent_blade"
+}

@@ -24,8 +24,12 @@ public class ModEntities {
                     .dimensions(EntityDimensions.fixed(3.5f,3.5f)).build());
     public static final EntityType<SoulerSoulProjectile> SOULER_SOUL_PROJECTILE = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(JamInAJarMod.MOD_ID,"souler_soul_projectile"),
-            FabricEntityTypeBuilder.<SoulerSoulProjectile>create(SpawnGroup.MISC,SoulerSoulProjectile::new)
+            FabricEntityTypeBuilder.create(SpawnGroup.MISC,SoulerSoulProjectile::new)
                     .dimensions(EntityDimensions.fixed(9f,4.5f)).build());
+    public static final EntityType<SoulerBeamProjectile> SOULER_BEAM_PROJECTILE = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(JamInAJarMod.MOD_ID,"souler_beam_projectile"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MISC,SoulerBeamProjectile::new)
+                    .dimensions(EntityDimensions.fixed(0.4f,0.4f)).build());
     private World world;
 
 
