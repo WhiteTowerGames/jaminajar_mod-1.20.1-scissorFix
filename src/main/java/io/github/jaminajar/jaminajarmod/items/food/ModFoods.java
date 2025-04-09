@@ -9,15 +9,15 @@ public class ModFoods {
                     .hunger(3)
                     .saturationModifier(4)
                     .snack()
-                    .statusEffect(new StatusEffectInstance(SPEED,5),1f)
-                    .statusEffect(new StatusEffectInstance(ABSORPTION,20,1),1f)
+                    .statusEffect(new StatusEffectInstance(SPEED,400),1f)
+                    .statusEffect(new StatusEffectInstance(ABSORPTION,200,1),1f)
                     .build();
     public static final FoodComponent COOKED_MARSHMALLOW =
             new FoodComponent.Builder()
                     .hunger(4)
                     .saturationModifier(8)
                     .snack()
-                    .statusEffect(new StatusEffectInstance(FIRE_RESISTANCE,30),1f)
-                    .statusEffect(new StatusEffectInstance(ABSORPTION,45,3),1f)
+                    .statusEffect(new StatusEffectInstance(FIRE_RESISTANCE,1000),1f)
+                    .statusEffect(new StatusEffectInstance(ABSORPTION,150,3),1f)
                     .build();
 }
