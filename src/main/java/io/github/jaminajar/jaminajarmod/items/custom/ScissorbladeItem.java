@@ -2,13 +2,17 @@ package io.github.jaminajar.jaminajarmod.items.custom;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 
 public class ScissorbladeItem extends ToolItem implements Vanishable {
@@ -19,6 +23,10 @@ public class ScissorbladeItem extends ToolItem implements Vanishable {
 
 	/// The constructor now also mirrors what {@link SwordItem#SwordItem(ToolMaterial, int, float, Settings)  SwordItem} does.
 	/// You should ***definitely*** do this for your other custom weapons and tools as well.
+	/// You should also consider creating getters for attack damage and attack speed,
+	/// as well as overriding {@link Item#postHit(ItemStack, LivingEntity, LivingEntity) Item.postHit()}
+	/// and {@link Item#postMine(ItemStack, World, BlockState, BlockPos, LivingEntity) Item.postMine()},
+	/// since these are the methods you'll want to decrement your item's durability in.
 	public ScissorbladeItem(ToolMaterial material, int attackDamage, float attackSpeed, Item.Settings settings) {
 		super(material, settings);
 		this.attackDamage = (float)attackDamage + material.getAttackDamage();
@@ -49,7 +57,7 @@ public class ScissorbladeItem extends ToolItem implements Vanishable {
 		int j;
 		if(ScissorMode){
 			j = 2;
-		} else if(!ScissorMode){
+		} else {
 			j = 0;
 		}
 	}
